@@ -1,0 +1,814 @@
+:root {
+    --primary-gold: #D4AF37;
+    --gold-glow: #FFD700;
+    --ivory: #FBF9F1;
+    --pearl: #FFFDF5;
+    --blush: #FADADD;
+    --champagne: #F7E7CE;
+    --text-dark: #3D2B1F;
+    --glass: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--ivory);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.calligraphy {
+    font-family: 'Great Vibes', cursive;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Utility */
+.glass {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.glass-gold {
+    background: rgba(212, 175, 55, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 15px;
+}
+
+.glass-premium {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--primary-gold);
+    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.15);
+}
+
+/* Background & Particles */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+}
+
+.particle {
+    position: absolute;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.5;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.hero .content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.bible-verse {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: var(--champagne);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Playfair Display', serif;
+}
+
+.bible-verse span {
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.couple-names-hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, var(--primary-gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    line-height: 1.2;
+    white-space: normal;
+}
+
+.couple-names-hero h1 .ampersand {
+    font-size: 2.5rem;
+    opacity: 0.8;
+    display: inline-block;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+/* Parent title styling */
+.parent-name .title {
+    color: #1a1a1a;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+}
+
+.wedding-date-tag {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+/* Countdown Card */
+.countdown-card {
+    padding: 2rem;
+    margin: 0 auto 3rem;
+    max-width: 600px;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.time-unit span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-gold);
+    line-height: 1;
+}
+
+.time-unit p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* Buttons */
+.btn-royal {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--primary-gold), #b38b1d);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-royal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    filter: brightness(1.2);
+}
+
+.btn-royal.secondary {
+    background: white;
+    color: var(--primary-gold);
+    border: 1px solid var(--primary-gold);
+}
+
+/* Audio Control */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-gold);
+    background: linear-gradient(45deg, #fdfcfb, #f5e3e6);
+    /* Creamy white background */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    /* Stronger gold shadow */
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+#music-toggle:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+}
+
+#music-toggle .icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+    z-index: 2;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        height: 5px;
+    }
+
+    50% {
+        height: 15px;
+    }
+}
+
+/* Section Setup */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '❦';
+    display: block;
+    font-size: 1.5rem;
+    color: var(--primary-gold);
+    margin-top: 10px;
+}
+
+/* Couple Cards */
+.couple-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.couple-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 450px;
+    padding: 40px 20px;
+    transition: var(--transition);
+}
+
+.couple-card:hover {
+    transform: translateY(-10px);
+}
+
+.photo-frame {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 250 / 320;
+    height: auto;
+    margin: 0 auto 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 8px;
+    background: linear-gradient(45deg, var(--primary-gold), var(--champagne));
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.couple-card h3 {
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.quote {
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Family Section */
+.family-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.family-card {
+    padding: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.family-card h3 {
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.parent-name {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-weight: 700;
+}
+
+.blessing-msg {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+.landmark {
+    display: inline-block;
+    color: var(--primary-gold);
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 400;
+    margin: 5px 0;
+    letter-spacing: 0.5px;
+}
+
+/* Details Section */
+.details-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.info-item .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Custom Calendar Icon */
+.calendar-icon {
+    width: 50px;
+    height: 55px;
+    background: white;
+    border-radius: 8px;
+    margin: 0 auto 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid var(--primary-gold);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cal-month {
+    background: #e63946;
+    /* Red for the top bar */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 0;
+    text-transform: uppercase;
+}
+
+.cal-date {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+/* Straight Icons */
+.straight-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.clock-icon::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--primary-gold);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.clock-icon::after {
+    content: '';
+    width: 2px;
+    height: 10px;
+    background: var(--primary-gold);
+    position: absolute;
+    top: 10px;
+    left: 19px;
+    box-shadow: 0 6px 0 0 var(--primary-gold) inset;
+    /* Minute hand */
+}
+
+/* More precise hands for the clock */
+.clock-icon::after {
+    content: '';
+    width: 2px;
+    height: 9px;
+    background: var(--primary-gold);
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 1px);
+    transform-origin: bottom;
+}
+
+.clock-icon {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center/32px;
+}
+
+.pin-icon {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E") no-repeat center/32px;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer */
+footer {
+    padding: 100px 20px 40px;
+    background: linear-gradient(to bottom, transparent, var(--champagne));
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+}
+
+/* Bruce Footer section centered */
+.bruce-section-footer {
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.bruce-photo-wrap {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 260 / 320;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    padding: 6px;
+    background: linear-gradient(45deg, var(--primary-gold), var(--champagne));
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.bruce-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.bruce-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+
+.footer-right {
+    flex: 1;
+    min-width: 260px;
+    text-align: center;
+}
+
+.contacts {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contact-box h4 {
+    color: var(--primary-gold);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.thank-you {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 60px;
+}
+
+.designer-tag {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 30px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.designer-tag a {
+    color: var(--primary-gold);
+    text-decoration: none;
+}
+
+/* Footer bottom credit bar */
+.footer-bottom {
+    background: rgba(212, 175, 55, 0.07);
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 14px 40px;
+    text-align: right;
+}
+
+.designer-credit {
+    font-size: 0.78rem;
+    color: var(--text-dark);
+    opacity: 0.75;
+}
+
+.designer-credit strong {
+    color: var(--primary-gold);
+    font-weight: 700;
+}
+
+.designer-credit a {
+    color: var(--primary-gold);
+    text-decoration: none;
+}
+
+/* Flower Burst Click Effect */
+.flower-burst {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    animation: flowerBurst 0.9s ease-out forwards;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes flowerBurst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(0.5);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translate(var(--tx), var(--ty)) rotate(calc(var(--rot) / 2)) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 15px;
+    }
+
+    .couple-names-hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.3;
+    }
+
+    .couple-names-hero h1 .ampersand {
+        display: block;
+        margin: 5px 0;
+        font-size: 2.5rem;
+        color: var(--primary-gold);
+        -webkit-text-fill-color: var(--primary-gold);
+        opacity: 1;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .timer {
+        gap: 5px;
+    }
+
+    .time-unit span {
+        font-size: 1.8rem;
+    }
+
+    .time-unit p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    .countdown-card {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero {
+        min-height: 80vh;
+        min-height: 80dvh;
+    }
+
+    .family-card {
+        padding: 25px;
+    }
+
+    .details-card {
+        padding: 40px 20px;
+    }
+
+    .footer-content {
+        padding: 40px 20px;
+    }
+
+    .contacts {
+        gap: 30px;
+    }
+
+    .thank-you {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .couple-names-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .bible-verse {
+        font-size: 1.1rem;
+    }
+
+    .wedding-date-tag {
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+    }
+
+    .time-unit span {
+        font-size: 1.5rem;
+    }
+
+    .couple-card h3 {
+        font-size: 2rem;
+    }
+
+    .photo-frame,
+    .bruce-photo-wrap {
+        max-width: 240px;
+    }
+
+    .parent-name {
+        font-size: 1.1rem;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .music-control {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #music-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    #music-toggle .sub-icon {
+        width: 15px;
+        height: 15px;
+        font-size: 0.6rem;
+    }
+}
